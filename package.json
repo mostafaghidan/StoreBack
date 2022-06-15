@@ -1,0 +1,56 @@
+{
+  "name": "image-processing-api",
+  "version": "1.0.1",
+  "description": "Starter project on Udacity",
+  "main": "index.ts",
+  "scripts": {
+    "build": "npx tsc",
+    "test-reset": "ENV=test db-migrate --env test reset --config ./database.json",
+    "test-up": "ENV=test db-migrate --env test up --config ./database.json",
+    "test-down": "ENV=test db-migrate --env test down --config ./database.json",
+    "test": "npm run test-reset && npm run build && npm run test-up && ENV=test  jasmine && npm run test-reset",
+    "start": "npm run build && ENV=dev nodemon ./dist/index.js",
+    "lint": "eslint . --ext .ts",
+    "lintFix": "eslint . --ext .ts --fix",
+    "prettify": "prettier --config .prettierrc.json 'src' --write",
+    "migrate-up": "db-migrate up --config ./database.json",
+    "migrate-down": "db-migrate down --config ./database.json"
+  },
+  "keywords": [
+    "Udacity",
+    "API",
+    "image"
+  ],
+  "author": "Oliver Tacke",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/bcrypt": "^5.0.0",
+    "@types/express": "^4.17.13",
+    "@types/jasmine": "^3.9.1",
+    "@types/jsonwebtoken": "^8.5.8",
+    "@types/node": "^16.10.3",
+    "@types/pg": "^8.6.5",
+    "@types/supertest": "^2.0.11",
+    "@typescript-eslint/eslint-plugin": "^4.33.0",
+    "@typescript-eslint/parser": "^4.33.0",
+    "eslint": "^7.32.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-prettier": "^4.0.0",
+    "jasmine": "^4.1.0",
+    "jasmine-spec-reporter": "^7.0.0",
+    "nodemon": "^2.0.13",
+    "prettier": "^2.4.1",
+    "supertest": "^6.2.3",
+    "ts-node": "^10.2.1",
+    "typescript": "^4.4.3"
+  },
+  "dependencies": {
+    "bcrypt": "^5.0.1",
+    "db-migrate": "^0.11.13",
+    "db-migrate-pg": "^1.2.2",
+    "dotenv": "^16.0.1",
+    "express": "^4.17.1",
+    "jsonwebtoken": "^8.5.1",
+    "pg": "^8.7.3"
+  }
+}
